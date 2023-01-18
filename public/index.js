@@ -7,3 +7,34 @@ async function main() {
 }
 
 main()
+
+a1bf862708814b28acbf69cade54b84d
+function getColor(stock) {
+    if(stock === "GME") {
+        return 'rgba(61, 161, 61, 0.7)'
+    }
+    if(stock === "MSFT") {
+        return 'rgba(209, 4, 25, 0.7)'
+    }
+    if(stock === "DIS") {
+        return 'rgba(18, 4, 209, 0.7)'
+    }
+    if (stock === "BNTX") {
+        return ' rgbs(166, 43, 158, 0.7)'
+    }
+}
+
+stocks.forEach( stock => stock.value.reverse())
+
+new Chart (timeChartCanvas.getContext('2d') , {
+    type: 'line',
+    data: {
+        labels: stock[0]. value.map(value => value.datetime),
+        datasets: stocks.map( stock => ({
+            label: stock.meta.symbol, 
+            data: stock.value.map(value => parseFloat(value.high)),
+            backgroundColor: getColor(stock.meta.symbol),
+            borderColor: getColor(stock.meta.symbol),
+        }))
+    }
+});
